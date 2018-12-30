@@ -123,7 +123,7 @@ def timsort(the_array):
     
    
     # 依次将run压入栈中，若栈顶run X，Y，Z。
-    # 违法了X>Y+Z 或 Y>Z 则Y与较小和合并，并再次放入栈中。
+    # 违反了X>Y+Z 或 Y>Z 则Y与较小长度的run合并，并再次放入栈中。
     # 依据这个法则，能够尽量使得大小相同的run合并，以提高性能。
     # Timsort是稳定排序故只有相邻的run才能归并。
     run_stack = []
@@ -154,7 +154,7 @@ def timsort(the_array):
             
         
         
-    #将剩余的run一一归并
+    #将栈中剩余的run归并
     for run in run_stack:
         sorted_array = merge(sorted_array, run)
         
